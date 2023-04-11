@@ -1,8 +1,9 @@
 ---
 import FlagLinks from "./FlagLinks.astro";
+import { ResetButton } from "./ResetButton";
 ---
 
 <div class="container flex justify-between items-center">
   <FlagLinks />
-  <button class="text-white font-bold hover:bg-slate-900 px-2 py-1 rounded-sm">Reset Progress</button>
+  <ResetButton client:load />
 </div>

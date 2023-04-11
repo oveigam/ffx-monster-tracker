@@ -1,14 +1,10 @@
-import { signal, useComputed } from "@preact/signals";
+import { useComputed } from "@preact/signals";
 import type { JSXInternal } from "preact/src/jsx";
-
-const counts = signal(new Map<string, number>());
+import { counts } from "../../state/counts";
 
 const Button = ({ children, ...props }: JSXInternal.HTMLAttributes<HTMLButtonElement>) => {
   return (
-    <button
-      class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 font-bold text-white"
-      {...props}
-    >
+    <button class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 font-bold text-white" {...props}>
       {children}
     </button>
   );
@@ -34,7 +30,7 @@ export const MonsterCounter = ({ id }: Props) => {
   return (
     <div class="flex flex-1 items-center gap-1">
       <Button onClick={() => add(-1)}>-</Button>
-      <span class="flex w-11 h-11 items-center justify-center rounded-full bg-slate-800 font-bold text-white">
+      <span class="flex h-11 w-11 items-center justify-center rounded-full bg-slate-800 font-bold text-white">
         {value}
       </span>
       <Button onClick={() => add(1)}>+</Button>
