@@ -3,7 +3,7 @@ import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType 
 import LocationHeader from "../../components/location/LocationHeader.astro";
 import MonsterAvatar from "../../components/monster/MonsterAvatar.astro";
 import { MonsterCounter } from "../../components/monster/MonsterCounter";
-import { dataset, type Data } from "../../data";
+import { dataset } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 import { langs } from "../../util/langs";
 
@@ -13,7 +13,7 @@ export const getStaticPaths = (() => {
       lang,
     },
     props: {
-      data: dataset[lang] as Data,
+      data: dataset[lang],
     },
   }));
 }) satisfies GetStaticPaths;
