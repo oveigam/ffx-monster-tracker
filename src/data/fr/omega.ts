@@ -15,7 +15,7 @@ export default {
   id: "omega",
   name: "Ruines d'Oméga",
   header: omegaImg,
-  mosters: [
+  monsters: [
     {
       id: "zaurus",
       name: "Zaurus",

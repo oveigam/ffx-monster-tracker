@@ -13,7 +13,7 @@ export default {
   id: "miihen",
   name: "Route de Mi'ihen",
   header: miihenImg,
-  mosters: [
+  monsters: [
     {
       id: "miihen-fang",
       name: "Chien de Mi'ihen",

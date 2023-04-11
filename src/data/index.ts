@@ -14,4 +14,4 @@ export const dataset = {
 
 export type Data = (typeof dataset)["en"];
 export type GameLocation = Data[number];
-export type Monster = GameLocation["mosters"][number];
+export type Monster = GameLocation["monsters"][number];

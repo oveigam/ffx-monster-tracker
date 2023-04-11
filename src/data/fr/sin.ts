@@ -14,7 +14,7 @@ export default {
   id: "sin",
   name: "Sin",
   header: sinImg,
-  mosters: [
+  monsters: [
     {
       id: "exoray",
       name: "Exoray",

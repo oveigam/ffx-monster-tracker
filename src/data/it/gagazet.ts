@@ -17,7 +17,7 @@ export default {
   id: "gagazet",
   name: "Monte Gagazet",
   header: gagazetImg,
-  mosters: [
+  monsters: [
     {
       id: "bandersnatch",
       name: "Mal Bernardo",

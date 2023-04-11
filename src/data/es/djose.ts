@@ -12,7 +12,7 @@ export default {
   id: "djose",
   name: "Camino de Djose",
   header: djoseImg,
-  mosters: [
+  monsters: [
     {
       id: "garm",
       name: "Garmú",

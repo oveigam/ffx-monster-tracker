@@ -8,7 +8,7 @@ export default {
   id: "besaid",
   name: "Besaid",
   header: besaidImg,
-  mosters: [
+  monsters: [
     {
       id: "dingo",
       name: "Dingo",

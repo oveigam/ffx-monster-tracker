@@ -14,7 +14,7 @@ export default {
   id: "cavern",
   name: "Grotta del crepaccio",
   header: cavernImg,
-  mosters: [
+  monsters: [
     {
       id: "yowie",
       name: "Yowie",

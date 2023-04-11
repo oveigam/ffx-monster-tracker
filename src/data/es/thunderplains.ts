@@ -13,7 +13,7 @@ export default {
   id: "thunderplains",
   name: "Llanura de los Rayos",
   header: thunderplainsImg,
-  mosters: [
+  monsters: [
     {
       id: "melusine",
       name: "Gecko",

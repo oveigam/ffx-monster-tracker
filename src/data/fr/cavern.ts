@@ -14,7 +14,7 @@ export default {
   id: "cavern",
   name: "Grotte de la vallée",
   header: cavernImg,
-  mosters: [
+  monsters: [
     {
       id: "yowie",
       name: "Yowie",

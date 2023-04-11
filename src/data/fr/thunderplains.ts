@@ -13,7 +13,7 @@ export default {
   id: "thunderplains",
   name: "Plaine foudroyée",
   header: thunderplainsImg,
-  mosters: [
+  monsters: [
     {
       id: "melusine",
       name: "Mélusine",

@@ -14,7 +14,7 @@ export default {
   id: "calm",
   name: "Piana della bonaccia",
   header: calmImg,
-  mosters: [
+  monsters: [
     {
       id: "skoll",
       name: "Scoor",

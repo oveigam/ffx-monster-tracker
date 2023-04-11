@@ -9,7 +9,7 @@ export default {
   id: "kilika",
   name: "Insel Kilika",
   header: kilikaImg,
-  mosters: [
+  monsters: [
     {
       id: "dinonix",
       name: "Dino-Salamander",

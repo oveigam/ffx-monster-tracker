@@ -13,7 +13,7 @@ export default {
   id: "miihen",
   name: "Mi'ihen Highroad",
   header: miihenImg,
-  mosters: [
+  monsters: [
     {
       id: "miihen-fang",
       name: "Mi'ihen Fang",

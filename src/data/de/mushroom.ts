@@ -12,7 +12,7 @@ export default {
   id: "mushroom",
   name: "Fungus-Pass",
   header: mushroomImg,
-  mosters: [
+  monsters: [
     {
       id: "raptor",
       name: "Miniraptor",

@@ -8,7 +8,7 @@ export default {
   id: "besaid",
   name: "Ile de Besaid",
   header: besaidImg,
-  mosters: [
+  monsters: [
     {
       id: "dingo",
       name: "Dingo",

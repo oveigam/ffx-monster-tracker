@@ -11,7 +11,7 @@ export default {
   id: "bikanel",
   name: "Isla Bikanel",
   header: bikanelImg,
-  mosters: [
+  monsters: [
     {
       id: "sand-wolf",
       name: "Lobo del desierto",

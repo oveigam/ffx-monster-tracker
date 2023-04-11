@@ -14,7 +14,7 @@ export default {
   id: "cavern",
   name: "Stolen Fayth Cavern",
   header: cavernImg,
-  mosters: [
+  monsters: [
     {
       id: "yowie",
       name: "Yowie",

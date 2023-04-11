@@ -14,7 +14,7 @@ export default {
   id: "calm",
   name: "Plaine Félicité",
   header: calmImg,
-  mosters: [
+  monsters: [
     {
       id: "skoll",
       name: "Lycaon",

@@ -15,7 +15,7 @@ export default {
   id: "omega",
   name: "Omega Dungeon",
   header: omegaImg,
-  mosters: [
+  monsters: [
     {
       id: "zaurus",
       name: "Zaurus",

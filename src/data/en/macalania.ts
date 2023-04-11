@@ -15,7 +15,7 @@ export default {
   id: "macalania",
   name: "Macalania",
   header: macalaniaImg,
-  mosters: [
+  monsters: [
     {
       id: "snow-wolf",
       name: "Snow Wolf",

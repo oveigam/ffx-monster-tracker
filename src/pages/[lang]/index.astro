@@ -26,7 +26,7 @@ const { data } = Astro.props;
 <Layout lang={lang}>
   <ul role="list" class="grid lg:grid-cols-2 grid-cols-1">
     {
-      data.map(({ name, header, mosters }, i) => (
+      data.map(({ name, header, monsters }, i) => (
         <li class={i === data.length - 1 ? "lg:col-span-2 col-span-1" : ""}>
           <LocationHeader name={name} image={header} />
           <ul
@@ -35,7 +35,7 @@ const { data } = Astro.props;
               i === data.length - 1 ? "lg:grid-cols-2 grid-cols-1" : "2xl:grid-cols-2 grid-cols-1"
             }  gap-4 p-4 pt-8 py-12`}
           >
-            {mosters.map(({ name, image }) => (
+            {monsters.map(({ name, image }) => (
               <li class="flex gap-8">
                 <MonsterAvatar name={name} image={image} />
                 <div class="flex flex-col ">

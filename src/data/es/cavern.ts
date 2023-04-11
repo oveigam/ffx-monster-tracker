@@ -14,7 +14,7 @@ export default {
   id: "cavern",
   name: "Cueva del barranco",
   header: cavernImg,
-  mosters: [
+  monsters: [
     {
       id: "yowie",
       name: "Yovi",

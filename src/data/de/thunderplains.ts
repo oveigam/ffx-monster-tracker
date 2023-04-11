@@ -13,7 +13,7 @@ export default {
   id: "thunderplains",
   name: "Donnersteppe",
   header: thunderplainsImg,
-  mosters: [
+  monsters: [
     {
       id: "melusine",
       name: "Mergin",

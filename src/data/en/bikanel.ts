@@ -11,7 +11,7 @@ export default {
   id: "bikanel",
   name: "Bikanel",
   header: bikanelImg,
-  mosters: [
+  monsters: [
     {
       id: "sand-wolf",
       name: "Sand Wolf",

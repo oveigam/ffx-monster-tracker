@@ -12,7 +12,7 @@ export default {
   id: "djose",
   name: "Route de Djose",
   header: djoseImg,
-  mosters: [
+  monsters: [
     {
       id: "garm",
       name: "Garoum",

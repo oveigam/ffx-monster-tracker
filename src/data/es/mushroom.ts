@@ -12,7 +12,7 @@ export default {
   id: "mushroom",
   name: "Senda de las Rocas Hongo",
   header: mushroomImg,
-  mosters: [
+  monsters: [
     {
       id: "raptor",
       name: "Raptor",

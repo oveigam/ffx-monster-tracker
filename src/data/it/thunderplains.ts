@@ -13,7 +13,7 @@ export default {
   id: "thunderplains",
   name: "Piana dei lampi",
   header: thunderplainsImg,
-  mosters: [
+  monsters: [
     {
       id: "melusine",
       name: "Meryujin",
