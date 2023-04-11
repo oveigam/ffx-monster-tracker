@@ -30,12 +30,15 @@ const { data } = Astro.props;
         return (
           <li class="flex flex-col items-center">
             <LocationHeader name={name} image={header} />
-            <ul role="list" class="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 gap-y-8 p-4 py-8 pb-12 container">
+            <ul
+              role="list"
+              class="container grid gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+            >
               {monsters.map(({ name, image }) => (
                 <li class="flex gap-4">
                   <MonsterAvatar name={name} image={image} />
                   <div class="flex flex-col ">
-                    <h3 class="text-2xl flex flex-1 items-center text-white">{name}</h3>
+                    <h3 class="flex flex-1 items-center text-2xl text-white">{name}</h3>
                     <div class="flex-1" />
                   </div>
                 </li>
