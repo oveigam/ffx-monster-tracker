@@ -6,6 +6,7 @@ import { MonsterCounter } from "../../components/monster/MonsterCounter";
 import { dataset } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 import { langs } from "../../util/langs";
+import ToolBar from "../../components/ToolBar.astro";
 
 export const getStaticPaths = (() => {
   return langs.map((lang) => ({
@@ -26,29 +27,40 @@ const { data } = Astro.props as Props;
 ---
 
 <Layout lang={lang}>
-  <ul role="list">
-    {
-      data.map(({ name, header, monsters }) => {
-        return (
-          <li class="flex flex-col items-center">
-            <LocationHeader name={name} image={header} />
-            <ul
-              role="list"
-              class="container grid gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center"
-            >
-              {monsters.map(({ id, name, image }) => (
-                <li class="flex gap-4">
-                  <MonsterAvatar name={name} image={image} />
-                  <div class="flex flex-col ">
-                    <h3 class="flex flex-1 items-center text-2xl text-white">{name}</h3>
-                    <MonsterCounter client:load id={id} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </li>
-        );
-      })
-    }
-  </ul>
+  <header class="bg-primary p-2 flex flex-col items-center">
+    <ToolBar />
+    <h1 class="text-white font-semi-bold text-5xl md:text-6xl container w-full my-4 text-center">
+      FFX Monster Tracker
+    </h1>
+  </header>
+  <main>
+    <ul role="list">
+      {
+        data.map(({ name, header, monsters }) => {
+          return (
+            <li class="flex flex-col items-center">
+              <LocationHeader name={name} image={header} />
+              <ul
+                role="list"
+                class="container grid gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center"
+              >
+                {monsters.map(({ id, name, image }) => (
+                  <li class="flex gap-4">
+                    <MonsterAvatar name={name} image={image} />
+                    <div class="flex flex-col ">
+                      <h3 class="flex flex-1 items-center text-2xl text-white">{name}</h3>
+                      <MonsterCounter client:load id={id} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+  <footer class="bg-primary p-2 flex justify-center">
+    <ToolBar />
+  </footer>
 </Layout>
