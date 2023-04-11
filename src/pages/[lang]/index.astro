@@ -1,9 +1,11 @@
 ---
+import LocationHeader from "../../components/location/LocationHeader.astro";
+import MonsterAvatar from "../../components/monster/MonsterAvatar.astro";
 import { dataset, type Data } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  return ["en", "es", "fr", "de", "it"].map((lang) => ({
+  return (["en", "es", "fr", "de", "it"] as const).map((lang) => ({
     params: {
       lang,
     },
@@ -13,7 +15,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params;
+const { lang = "en" } = Astro.params;
 
 interface Props {
   data: Data;
@@ -21,21 +23,25 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<Layout title="FFX Monster Tracker">
-  <h2>
-    {lang}
-  </h2>
-  <ul>
+<Layout lang={lang}>
+  <ul role="list" class="grid lg:grid-cols-2 grid-cols-1">
     {
-      data.map(({ name, header, mosters }) => (
-        <li class="p-8">
-          <img src={header} />
-          <h1>{name}</h1>
-          <ul>
+      data.map(({ name, header, mosters }, i) => (
+        <li class={i === data.length - 1 ? "lg:col-span-2 col-span-1" : ""}>
+          <LocationHeader name={name} image={header} />
+          <ul
+            role="list"
+            class={`grid ${
+              i === data.length - 1 ? "lg:grid-cols-2 grid-cols-1" : "2xl:grid-cols-2 grid-cols-1"
+            }  gap-4 p-4 pt-8 py-12`}
+          >
             {mosters.map(({ name, image }) => (
-              <li class="flex gap-2">
-                <img src={image} />
-                <h4>{name}</h4>
+              <li class="flex gap-8">
+                <MonsterAvatar name={name} image={image} />
+                <div class="flex flex-col ">
+                  <h3 class="flex-1 flex items-center xl:text-5xl lg:text-3xl md:text-xl text-md text-white">{name}</h3>
+                  <div class="flex-1" />
+                </div>
               </li>
             ))}
           </ul>

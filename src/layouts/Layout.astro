@@ -1,21 +1,24 @@
 ---
 export interface Props {
-  title: string;
+  lang: string;
 }
 
-const { title } = Astro.props;
+const { lang } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>FFX Monster Tracker</title>
   </head>
-  <body>
+  <!-- <body class="overflow-auto h-screen bg-gradient-to-br from-[#212349] to-[#7281A2]"> -->
+  <body
+    class="overflow-auto h-screen bg-red-600 sm:bg-green-600 md:bg-blue-600 lg:bg-yellow-600 xl:bg-purple-600 2xl:bg-primary"
+  >
     <slot />
   </body>
 </html>
@@ -26,7 +29,7 @@ const { title } = Astro.props;
   }
   html {
     font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
+    overflow: hidden;
   }
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,

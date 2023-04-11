@@ -1,0 +1,14 @@
+---
+export interface Props {
+  name: string;
+  image: string;
+}
+
+const { name, image } = Astro.props;
+---
+
+<div
+  class="w-32 h-32 p-4 overflow-hidden border-solid border-slate-600 border flex justify-center items-center rounded-full bg-gradient-to-br from-slate-900 to-slate-800"
+>
+  <img src={image} alt={`${name} monster image`} class="object-cover" />
+</div>
