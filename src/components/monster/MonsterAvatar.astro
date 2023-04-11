@@ -8,7 +8,7 @@ const { name, image } = Astro.props;
 ---
 
 <div
-  class="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-solid border-slate-600 bg-gradient-to-br from-slate-900 to-slate-800 p-4"
+  class="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-solid border-slate-600 bg-gradient-to-br from-slate-800 to-slate-600 p-3"
 >
-  <img src={image} alt={`${name} monster image`} class="object-cover" />
+  <img src={image} alt={`${name} monster image`} class="object-cover" draggable="false" />
 </div>

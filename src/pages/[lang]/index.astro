@@ -24,29 +24,26 @@ const { data } = Astro.props;
 ---
 
 <Layout lang={lang}>
-  <ul role="list" class="grid grid-cols-1 lg:grid-cols-2">
+  <ul role="list">
     {
-      data.map(({ name, header, monsters }, i) => (
-        <li class={i === data.length - 1 ? "col-span-1 lg:col-span-2" : ""}>
-          <LocationHeader name={name} image={header} />
-          <ul
-            role="list"
-            class={`grid ${
-              i === data.length - 1 ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1 2xl:grid-cols-2"
-            }  gap-4 p-4 py-12 pt-8`}
-          >
-            {monsters.map(({ name, image }) => (
-              <li class="flex gap-8">
-                <MonsterAvatar name={name} image={image} />
-                <div class="flex flex-col ">
-                  <h3 class="text-md flex flex-1 items-center text-white md:text-xl lg:text-3xl xl:text-5xl">{name}</h3>
-                  <div class="flex-1" />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))
+      data.map(({ name, header, monsters }) => {
+        return (
+          <li class="flex flex-col items-center">
+            <LocationHeader name={name} image={header} />
+            <ul role="list" class="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 gap-y-8 p-4 py-8 pb-12 container">
+              {monsters.map(({ name, image }) => (
+                <li class="flex gap-4">
+                  <MonsterAvatar name={name} image={image} />
+                  <div class="flex flex-col ">
+                    <h3 class="text-2xl flex flex-1 items-center text-white">{name}</h3>
+                    <div class="flex-1" />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </li>
+        );
+      })
     }
   </ul>
 </Layout>
