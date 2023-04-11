@@ -1,12 +1,14 @@
 ---
+import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 import LocationHeader from "../../components/location/LocationHeader.astro";
 import MonsterAvatar from "../../components/monster/MonsterAvatar.astro";
 import { MonsterCounter } from "../../components/monster/MonsterCounter";
 import { dataset, type Data } from "../../data";
 import Layout from "../../layouts/Layout.astro";
+import { langs } from "../../util/langs";
 
-export async function getStaticPaths() {
-  return (["en", "es", "fr", "de", "it"] as const).map((lang) => ({
+export const getStaticPaths = (() => {
+  return langs.map((lang) => ({
     params: {
       lang,
     },
@@ -14,14 +16,13 @@ export async function getStaticPaths() {
       data: dataset[lang] as Data,
     },
   }));
-}
+}) satisfies GetStaticPaths;
 
-const { lang = "en" } = Astro.params;
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-interface Props {
-  data: Data;
-}
-const { data } = Astro.props;
+const { lang } = Astro.params as Params;
+const { data } = Astro.props as Props;
 ---
 
 <Layout lang={lang}>
