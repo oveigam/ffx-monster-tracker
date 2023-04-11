@@ -1,9 +1,15 @@
 ---
+import type { Lang } from "../util/langs";
 import FlagLinks from "./FlagLinks.astro";
 import { ResetButton } from "./ResetButton";
+
+type Props = {
+  lang: Lang;
+};
+const { lang } = Astro.props;
 ---
 
 <div class="container flex items-center justify-between">
   <FlagLinks />
-  <ResetButton client:load />
+  <ResetButton client:load lang={lang} />
 </div>
