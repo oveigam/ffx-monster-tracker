@@ -1,6 +1,7 @@
 ---
 import LocationHeader from "../../components/location/LocationHeader.astro";
 import MonsterAvatar from "../../components/monster/MonsterAvatar.astro";
+import { MonsterCounter } from "../../components/monster/MonsterCounter";
 import { dataset, type Data } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 
@@ -34,12 +35,12 @@ const { data } = Astro.props;
               role="list"
               class="container grid gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
             >
-              {monsters.map(({ name, image }) => (
+              {monsters.map(({ id, name, image }) => (
                 <li class="flex gap-4">
                   <MonsterAvatar name={name} image={image} />
                   <div class="flex flex-col ">
                     <h3 class="flex flex-1 items-center text-2xl text-white">{name}</h3>
-                    <div class="flex-1" />
+                    <MonsterCounter client:load id={id} />
                   </div>
                 </li>
               ))}
