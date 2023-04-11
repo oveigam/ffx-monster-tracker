@@ -1,4 +1,5 @@
 ---
+import { dataset, type Data } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -6,14 +7,40 @@ export async function getStaticPaths() {
     params: {
       lang,
     },
+    props: {
+      data: dataset[lang] as Data,
+    },
   }));
 }
 
 const { lang } = Astro.params;
+
+interface Props {
+  data: Data;
+}
+const { data } = Astro.props;
 ---
 
 <Layout title="FFX Monster Tracker">
   <h2>
     {lang}
   </h2>
+  <ul>
+    {
+      data.map(({ name, header, mosters }) => (
+        <li class="p-8">
+          <img src={header} />
+          <h1>{name}</h1>
+          <ul>
+            {mosters.map(({ name, image }) => (
+              <li class="flex gap-2">
+                <img src={image} />
+                <h4>{name}</h4>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
