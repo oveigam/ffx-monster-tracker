@@ -62,13 +62,13 @@ export const MonsterCounter = ({ id }: Props) => {
 
   return (
     <div class="flex flex-1 items-center gap-1">
-      <Button onClick={() => add(-1)}>
+      <Button id={`minus ${id}`} onClick={() => add(-1)}>
         <MinusIcon />
       </Button>
       <span class="flex h-11 w-11 items-center justify-center rounded-full  border border-solid border-slate-700 bg-slate-800 font-bold text-white">
         {value}
       </span>
-      <Button onClick={() => add(1)}>
+      <Button id={`plus ${id}`} onClick={() => add(1)}>
         <AddIcon />
       </Button>
     </div>

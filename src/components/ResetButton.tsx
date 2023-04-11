@@ -24,6 +24,7 @@ type Props = {
 export const ResetButton = ({ lang }: Props) => {
   return (
     <button
+      id="reset"
       class="rounded-md px-2 py-1 font-bold text-white hover:bg-slate-900 active:bg-slate-950"
       onClick={() => {
         localStorage.clear();
