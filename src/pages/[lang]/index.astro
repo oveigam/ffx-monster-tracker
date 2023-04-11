@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  return ["en", "es", "fr", "de", "it"].map((lang) => ({
+    params: {
+      lang,
+    },
+  }));
+}
+
+const { lang } = Astro.params;
+---
+
+<Layout title="FFX Monster Tracker">
+  <h2>
+    {lang}
+  </h2>
+</Layout>
