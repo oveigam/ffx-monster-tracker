@@ -8,8 +8,8 @@ const { name, image } = Astro.props;
 ---
 
 <div class="relative">
-  <img src={image} alt={`${name} header image`} class="w-full h-[200px] object-cover" />
-  <div class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-[#212349] via-transparent to-[#212349]">
+  <img src={image} alt={`${name} header image`} class="h-[200px] w-full object-cover" />
+  <div class="absolute bottom-0 left-0 right-0 top-0 bg-gradient-to-r from-[#212349] via-transparent to-[#212349]">
   </div>
-  <h2 class="absolute lg:text-5xl text-5xl bottom-0 left-0 text-white m-5">{name}</h2>
+  <h2 class="absolute bottom-0 left-0 m-5 text-5xl text-white lg:text-5xl">{name}</h2>
 </div>
