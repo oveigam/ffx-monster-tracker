@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import en from "./../assets/flags/en.png";
 import es from "./../assets/flags/es.png";
 import fr from "./../assets/flags/fr.png";
@@ -8,18 +10,43 @@ import it from "./../assets/flags/it.png";
 
 <div class="flex gap-2">
   <a href="/en" title="English">
-    <img class="border border-solid border-slate-700 hover:opacity-90" src={en} alt={`${en} flag`} draggable="false" />
+    <Image
+      class="border border-solid border-slate-700 hover:opacity-90"
+      src={en}
+      alt={`english flag`}
+      draggable="false"
+    />
   </a>
   <a href="/es" title="Español">
-    <img class="border border-solid border-slate-700 hover:opacity-90" src={es} alt={`${es} flag`} draggable="false" />
+    <Image
+      class="border border-solid border-slate-700 hover:opacity-90"
+      src={es}
+      alt={`spanish flag`}
+      draggable="false"
+    />
   </a>
   <a href="/fr" title="Français">
-    <img class="border border-solid border-slate-700 hover:opacity-90" src={fr} alt={`${fr} flag`} draggable="false" />
+    <Image
+      class="border border-solid border-slate-700 hover:opacity-90"
+      src={fr}
+      alt={`french flag`}
+      draggable="false"
+    />
   </a>
   <a href="/de" title="Deutsch">
-    <img class="border border-solid border-slate-700 hover:opacity-90" src={de} alt={`${de} flag`} draggable="false" />
+    <Image
+      class="border border-solid border-slate-700 hover:opacity-90"
+      src={de}
+      alt={`german flag`}
+      draggable="false"
+    />
   </a>
   <a href="/it" title="Italiano">
-    <img class="border border-solid border-slate-700 hover:opacity-90" src={it} alt={`${it} flag`} draggable="false" />
+    <Image
+      class="border border-solid border-slate-700 hover:opacity-90"
+      src={it}
+      alt={`italian flag`}
+      draggable="false"
+    />
   </a>
 </div>
