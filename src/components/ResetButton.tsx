@@ -18,13 +18,15 @@ function t(language: Lang) {
 }
 
 type Props = {
+  id: string;
   lang: Lang;
 };
 
-export const ResetButton = ({ lang }: Props) => {
+export const ResetButton = ({ id, lang }: Props) => {
   return (
     <button
-      id="reset"
+      id={id}
+      aria-label={id}
       class="rounded-md px-2 py-1 font-bold text-white hover:bg-slate-900 active:bg-slate-950"
       onClick={() => {
         localStorage.clear();
