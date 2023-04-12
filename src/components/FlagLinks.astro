@@ -1,50 +1,57 @@
 ---
-import { Image } from "astro:assets";
-
-import en from "./../assets/flags/en.png";
-import es from "./../assets/flags/es.png";
-import fr from "./../assets/flags/fr.png";
-import de from "./../assets/flags/de.png";
-import it from "./../assets/flags/it.png";
+import en from "./../assets/flags/en.svg";
+import es from "./../assets/flags/es.svg";
+import fr from "./../assets/flags/fr.svg";
+import de from "./../assets/flags/de.svg";
+import it from "./../assets/flags/it.svg";
 ---
 
 <div class="flex gap-2">
   <a href="/en" title="English">
-    <Image
+    <img
       class="border border-solid border-slate-700 hover:opacity-90"
-      src={en}
+      src={en.src}
+      width={32}
       alt={`english flag`}
       draggable="false"
     />
   </a>
   <a href="/es" title="Español">
-    <Image
+    <img
       class="border border-solid border-slate-700 hover:opacity-90"
-      src={es}
+      src={es.src}
+      width={32}
+      height={24.5}
       alt={`spanish flag`}
       draggable="false"
     />
   </a>
   <a href="/fr" title="Français">
-    <Image
+    <img
       class="border border-solid border-slate-700 hover:opacity-90"
-      src={fr}
+      src={fr.src}
+      width={32}
+      height={24.5}
       alt={`french flag`}
       draggable="false"
     />
   </a>
   <a href="/de" title="Deutsch">
-    <Image
+    <img
       class="border border-solid border-slate-700 hover:opacity-90"
-      src={de}
+      src={de.src}
+      width={32}
+      height={24.5}
       alt={`german flag`}
       draggable="false"
     />
   </a>
   <a href="/it" title="Italiano">
-    <Image
+    <img
       class="border border-solid border-slate-700 hover:opacity-90"
-      src={it}
+      src={it.src}
+      width={32}
+      height={24.5}
       alt={`italian flag`}
       draggable="false"
     />
