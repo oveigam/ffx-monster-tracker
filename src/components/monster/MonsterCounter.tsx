@@ -48,7 +48,8 @@ type Props = {
 };
 
 export const MonsterCounter = ({ id }: Props) => {
-  const { value } = useComputed(() => counts.value.get(id) ?? Number(localStorage.getItem(id)) ?? 0);
+  // FIXME local storaage ??
+  const { value } = useComputed(() => counts.value.get(id) ?? Number(localStorage.getItem?.(id)) ?? 0);
 
   const add = (operator: 1 | -1) => {
     const count = value + operator;
