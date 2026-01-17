@@ -1,12 +1,11 @@
 ---
 import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
+import ToolBar from "../../components/ToolBar.astro";
 import LocationHeader from "../../components/location/LocationHeader.astro";
-import MonsterAvatar from "../../components/monster/MonsterAvatar.astro";
+import Monster from "../../components/monster/Monster.astro";
 import { dataset } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 import { langs } from "../../util/langs";
-import ToolBar from "../../components/ToolBar.astro";
-import MonsterCounter from "../../components/monster/MonsterCounter.astro";
 
 export const getStaticPaths = (() => {
   return langs.map((lang) => ({
@@ -48,14 +47,8 @@ const { data } = Astro.props as Props;
                 role="list"
                 class="container grid justify-center gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
               >
-                {monsters.map(({ id, name, image }) => (
-                  <li class="flex gap-4">
-                    <MonsterAvatar name={name} image={image} />
-                    <div class="flex flex-col">
-                      <h3 class="flex flex-1 items-center text-2xl text-white">{name}</h3>
-                      <MonsterCounter monsterId={id} />
-                    </div>
-                  </li>
+                {monsters.map((monster) => (
+                  <Monster {...monster} />
                 ))}
               </ul>
             </li>

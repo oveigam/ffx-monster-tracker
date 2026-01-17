@@ -11,7 +11,7 @@
   --card-foreground: oklch(0.9 0.01 240);
 
   /* Popovers and Overlays */
-  --popover: oklch(0.3716 0.1177 286.85);
+  --popover: oklch(0.406 0.1798 271.55);
   --popover-foreground: oklch(0.9 0.01 273);
 
   /* The signature bright blue highlight */
@@ -19,7 +19,7 @@
   --primary-foreground: oklch(0.99 0.01 240);
 
   /* The dark slate/marble header color */
-  --secondary: oklch(0.15 0.02 240);
+  --secondary: oklch(0.6648 0.1299 237.33);
   --secondary-foreground: oklch(0.9 0.02 240);
 
   /* Muted text and background elements */
@@ -31,7 +31,7 @@
   --accent-foreground: oklch(0.1 0.05 260);
 
   /* Border color - a light, semi-transparent blue-white */
-  --border: oklch(0.8 0.05 240 / 0.3);
+  --border: oklch(0.7007 0.1092 235.45);
   --input: oklch(0.3 0.1 260);
   --ring: oklch(0.6 0.12 250);
 
@@ -210,8 +210,8 @@
     background-image: url("/watertexture.png");
     background-repeat: repeat;
 
-    /* background-size: 256px; */
-    background-size: 512px;
+    background-size: 256px;
+    /* background-size: 512px; */
 
     opacity: 0.25;
     mix-blend-mode: overlay;
