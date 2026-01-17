@@ -10,7 +10,7 @@ const config = {
       },
     },
   ],
-  printWidth: 120,
+  printWidth: 100,
   endOfLine: "auto",
 
   importOrder: ["(.*).css", "<THIRD_PARTY_MODULES>", "^@/(.*)$", "^[./]"],

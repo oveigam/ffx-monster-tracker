@@ -10,7 +10,12 @@ const { name, image } = Astro.props;
 ---
 
 <div class="relative w-full">
-  <Image class="h-[175px] w-full object-cover lg:h-[200px]" src={image} alt={`${name} header image`} height={400} />
+  <Image
+    class="h-[175px] w-full object-cover lg:h-[200px]"
+    src={image}
+    alt={`${name} header image`}
+    height={400}
+  />
   <div
     class="from-primary to-primary absolute top-0 right-0 bottom-0 left-0 flex justify-center bg-gradient-to-r via-transparent p-3"
   >
