@@ -12,10 +12,6 @@ const config = {
   ],
   printWidth: 100,
   endOfLine: "auto",
-
-  importOrder: ["(.*).css", "<THIRD_PARTY_MODULES>", "^@/(.*)$", "^[./]"],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
 };
 
 export default config;
