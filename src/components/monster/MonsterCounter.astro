@@ -1,0 +1,75 @@
+---
+export interface Props {
+  monsterId: string;
+}
+
+const { monsterId } = Astro.props;
+---
+
+<div class="flex flex-1 items-center gap-1" data-monster-id={monsterId}>
+  <button
+    class="flex h-9 w-9 items-center justify-center rounded-full border border-solid border-slate-800 bg-slate-900 text-white"
+    data-action="minus"
+    aria-label="Decrease count"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width={1.5}
+      stroke="currentColor"
+      class="h-5 w-5"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15"></path>
+    </svg>
+  </button>
+
+  <span
+    class="flex h-11 w-11 items-center justify-center rounded-full border border-solid border-slate-700 bg-slate-800 font-bold text-white"
+    data-count-display
+  >
+    0
+  </span>
+
+  <button
+    class="flex h-9 w-9 items-center justify-center rounded-full border border-solid border-slate-800 bg-slate-900 text-white"
+    data-action="plus"
+    aria-label="Increase count"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width={1.5}
+      stroke="currentColor"
+      class="h-5 w-5"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+    </svg>
+  </button>
+</div>
+
+<!-- Astro deduplicates scripts, this will run only once  -->
+<script>
+  import {
+    $monsterCaptures,
+    incrementMonsterCapture,
+    decrementMonsterCapture,
+  } from "../../state/monster-capture-count";
+
+  const counters = document.querySelectorAll("[data-monster-id]");
+
+  counters.forEach((container) => {
+    const id = container.getAttribute("data-monster-id")!;
+    const display = container.querySelector("[data-count-display]")!;
+    const plusBtn = container.querySelector('[data-action="plus"]')!;
+    const minusBtn = container.querySelector('[data-action="minus"]')!;
+
+    $monsterCaptures.subscribe((state) => {
+      display.textContent = state[id] || "0";
+    });
+
+    plusBtn.addEventListener("click", () => incrementMonsterCapture(id));
+    minusBtn.addEventListener("click", () => decrementMonsterCapture(id));
+  });
+</script>

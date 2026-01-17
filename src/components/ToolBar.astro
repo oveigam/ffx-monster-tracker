@@ -1,16 +1,7 @@
 ---
-import type { Lang } from "../util/langs";
 import FlagLinks from "./FlagLinks.astro";
-import { ResetButton } from "./ResetButton";
-
-type Props = {
-  lang: Lang;
-  bottom?: boolean;
-};
-const { lang, bottom = false } = Astro.props;
 ---
 
 <div class="container flex items-center justify-between">
   <FlagLinks />
-  <ResetButton client:load lang={lang} id={bottom ? "reset on footer" : "reset on header"} />
 </div>
