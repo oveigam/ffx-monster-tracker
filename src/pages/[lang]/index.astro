@@ -27,11 +27,15 @@ const { data } = Astro.props as Props;
 ---
 
 <Layout lang={lang}>
-  <header class="bg-primary flex flex-col items-center p-2">
+  <header class="flex flex-col items-center gap-4 p-2">
     <ToolBar />
-    <h1 class="container my-4 w-full text-center text-3xl text-white sm:text-4xl md:text-6xl">
-      FFX Monster Tracker
-    </h1>
+    <div
+      class="container my-4 border-y bg-linear-to-r from-transparent via-zinc-900 to-transparent py-2 [border-image:linear-gradient(to_right,transparent,black,transparent)1]"
+    >
+      <h1 class="ffx-title w-full text-center text-3xl text-white sm:text-4xl md:text-6xl">
+        FFX Monster Tracker
+      </h1>
+    </div>
   </header>
   <main>
     <ul role="list">
