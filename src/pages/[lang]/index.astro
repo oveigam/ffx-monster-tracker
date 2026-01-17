@@ -27,7 +27,7 @@ const { data } = Astro.props as Props;
 ---
 
 <Layout lang={lang}>
-  <header class="flex flex-col items-center gap-4 p-2">
+  <header class="flex flex-col items-center gap-4 py-2">
     <ToolBar />
     <div
       class="container my-4 border-y bg-linear-to-r from-transparent via-zinc-900 to-transparent py-2 [border-image:linear-gradient(to_right,transparent,black,transparent)1]"
@@ -38,7 +38,7 @@ const { data } = Astro.props as Props;
     </div>
   </header>
   <main>
-    <ul role="list">
+    <ul role="list" class="container mx-auto">
       {
         data.map(({ name, header, monsters }) => {
           return (
