@@ -9,7 +9,7 @@ export interface Props {
 const { lang } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
@@ -19,7 +19,7 @@ const { lang } = Astro.props;
     <meta name="description" content="Keep track of Final Fantasy X's monster capture mini game progress" />
     <title>FFX Monster Tracker</title>
   </head>
-  <body class="from-primary to-secondary h-screen overflow-auto bg-gradient-to-br">
+  <body>
     <slot />
   </body>
 </html>
