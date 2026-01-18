@@ -1,7 +1,7 @@
 import { defineMiddleware } from "astro:middleware";
 
 export const onRequest = defineMiddleware((context, next) => {
-  console.log("HELLO MIDDLEWARE", context.url.pathname);
+  console.error("HELLO MIDDLEWARE", context.url.pathname);
 
   // if (context.url.pathname === "/") {
   //   // 1. Standard Device Info
