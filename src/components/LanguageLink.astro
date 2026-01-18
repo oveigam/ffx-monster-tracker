@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+import en from "./../assets/flags/en.svg";
+import es from "./../assets/flags/es.svg";
+import fr from "./../assets/flags/fr.svg";
+import de from "./../assets/flags/de.svg";
+import it from "./../assets/flags/it.svg";
+import type { Lang } from "../util/langs";
+
+export interface Props {
+  language: Lang;
+}
+
+const { language } = Astro.props;
+
+const CONFIG = {
+  en: { href: "/en", title: "English", src: en, alt: "english flag" },
+  es: { href: "/es", title: "Español", src: es, alt: "spanish flag" },
+  fr: { href: "/fr", title: "Français", src: fr, alt: "french flag" },
+  de: { href: "/de", title: "Deutsch", src: de, alt: "german flag" },
+  it: { href: "/it", title: "Italiano", src: it, alt: "italian flag" },
+};
+
+const { href, title, src, alt } = CONFIG[language];
+---
+
+<a
+  href={href}
+  class="hover:ffx-pointer flex gap-2 transition-opacity duration-300 group-hover:opacity-20 hover:opacity-100!"
+  title={title}
+>
+  <Image
+    class="border border-black"
+    src={src}
+    width={32}
+    height={24.5}
+    alt={alt}
+    draggable="false"
+  />
+</a>
