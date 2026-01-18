@@ -1,34 +1,24 @@
 import { defineMiddleware } from "astro:middleware";
 
 export const onRequest = defineMiddleware((context, next) => {
-  console.log("HELLO MIDDLEWARE", context.url.pathname);
+  console.log("--- MIDDLEWARE EXECUTION ---");
 
   if (context.url.pathname === "/") {
-    // 1. Standard Device Info
-    const ua = context.request.headers.get("user-agent") || "unknown";
-
-    // 2. Vercel-specific Geolocation headers (available at the Edge)
-    const country = context.request.headers.get("x-vercel-ip-country") || "unknown";
-    const city = context.request.headers.get("x-vercel-ip-city") || "unknown";
-    const region = context.request.headers.get("x-vercel-ip-country-region") || "unknown";
-
-    const vercelId = context.request.headers.get("x-vercel-id") || "unknown";
-    const edgeRegion = vercelId.split("::")[0];
-
     const acceptLanguage = context.request.headers.get("accept-language") || "";
 
-    console.log(`[Redirect Log]
-      Edge Region: ${edgeRegion}
-      Accept Language: ${acceptLanguage}
-      Device (UA): ${ua}
-      Location: ${city}, ${region}, ${country}
-      IP: ${context.request.headers.get("x-real-ip") || "unknown"}
-    `);
+    const supported = ["en", "es", "fr", "de", "it"];
+    const locale = supported.find((lang) => acceptLanguage.includes(lang)) || "en";
 
-    // TODO remove all that shit from before
+    console.log(`[REDIRECT] Header: ${acceptLanguage} -> Selected: ${locale}`);
 
-    const locale = "en";
-    return context.redirect(`/${locale}/`);
+    const targetUrl = new URL(`/${locale}/`, context.url);
+
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: targetUrl.toString(),
+      },
+    });
   }
 
   return next();
