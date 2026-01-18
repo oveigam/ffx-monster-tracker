@@ -15,9 +15,11 @@ export const onRequest = defineMiddleware((context, next) => {
     const vercelId = context.request.headers.get("x-vercel-id") || "unknown";
     const edgeRegion = vercelId.split("::")[0];
 
+    const acceptLanguage = context.request.headers.get("accept-language") || "";
+
     console.log(`[Redirect Log]
       Edge Region: ${edgeRegion}
-      Target Locale: ${context.preferredLocale}
+      Accept Language: ${acceptLanguage}
       Device (UA): ${ua}
       Location: ${city}, ${region}, ${country}
       IP: ${context.request.headers.get("x-real-ip") || "unknown"}
@@ -25,7 +27,7 @@ export const onRequest = defineMiddleware((context, next) => {
 
     // TODO remove all that shit from before
 
-    const locale = context.preferredLocale || "en";
+    const locale = "en";
     return context.redirect(`/${locale}/`);
   }
 
