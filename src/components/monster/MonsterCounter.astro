@@ -59,11 +59,31 @@ const { monsterId } = Astro.props;
   counters.forEach((container) => {
     const id = container.getAttribute("data-monster-id")!;
     const display = container.querySelector("[data-count-display]")!;
-    const plusBtn = container.querySelector('[data-action="plus"]')!;
-    const minusBtn = container.querySelector('[data-action="minus"]')!;
+    const plusBtn = container.querySelector<HTMLButtonElement>('[data-action="plus"]')!;
+    const minusBtn = container.querySelector<HTMLButtonElement>('[data-action="minus"]')!;
 
     $monsterCaptures.subscribe((state) => {
-      display.textContent = state[id] || "0";
+      const textValue = state[id] || "0";
+      display.textContent = textValue;
+
+      const numeric = Number(textValue);
+      const count = isNaN(numeric) ? 0 : numeric;
+
+      if (count >= 10) {
+        plusBtn.disabled = true;
+        plusBtn.classList.add("grayscale", "opacity-50", "pointer-events-none");
+      } else {
+        plusBtn.disabled = false;
+        plusBtn.classList.remove("grayscale", "opacity-50", "pointer-events-none");
+      }
+
+      if (count <= 0) {
+        minusBtn.disabled = true;
+        minusBtn.classList.add("grayscale", "opacity-50", "pointer-events-none");
+      } else {
+        minusBtn.disabled = false;
+        minusBtn.classList.remove("grayscale", "opacity-50", "pointer-events-none");
+      }
     });
 
     plusBtn.addEventListener("click", () => incrementMonsterCapture(id));
