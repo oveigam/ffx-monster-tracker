@@ -1,12 +1,22 @@
+//  @ts-check
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 
-import preact from "@astrojs/preact";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), preact()],
-  experimental: {
-    assets: true,
+  integrations: [],
+
+  vite: {
+    plugins: [tailwindcss()],
   },
+
+  i18n: {
+    locales: ["en", "es", "fr", "de", "it"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: true
+    }
+  }
 });

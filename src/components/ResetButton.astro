@@ -1,0 +1,91 @@
+---
+import type { Lang } from "../util/langs";
+
+const LABELS = {
+  es: {
+    btn: "Reiniciar Progreso",
+    title: "Confirmar reinicio",
+    msg: "Esta acción eliminará todo tu progreso. ¿Estás seguro?",
+    yes: "Confirmar",
+    no: "Cancelar",
+  },
+  fr: {
+    btn: "Réinitialiser la progression",
+    title: "Confirmer la réinitialisation",
+    msg: "Cette action supprimera toute votre progression. Êtes-vous sûr ?",
+    yes: "Confirmer",
+    no: "Annuler",
+  },
+  de: {
+    btn: "Fortschritt zurücksetzen",
+    title: "Zurücksetzen bestätigen",
+    msg: "Diese Aktion löscht Ihren gesamten Fortschritt. Sind Sie sicher?",
+    yes: "Bestätigen",
+    no: "Abbrechen",
+  },
+  it: {
+    btn: "Reimposta il progresso",
+    title: "Conferma reimpostazione",
+    msg: "Questa azione eliminerà tutto il tuo progresso. Sei sicuro?",
+    yes: "Conferma",
+    no: "Annulla",
+  },
+  en: {
+    btn: "Reset Progress",
+    title: "Confirm Reset",
+    msg: "This action will delete all your progress. Are you sure?",
+    yes: "Confirm",
+    no: "Cancel",
+  },
+};
+
+type Props = {
+  lang: Lang;
+};
+
+const t = LABELS[Astro.props.lang] || LABELS.en;
+---
+
+<button
+  id="reset-trigger"
+  class="hover:ffx-pointer active:ffx-pointer-active focus:ffx-pointer text-white outline-none"
+>
+  {t.btn}
+</button>
+
+<dialog
+  id="reset-dialog"
+  class="ffx-stonetexture bg-popover/75 text-popover-foreground ring-foreground/25 m-auto hidden w-96 flex-col items-center gap-4 p-6 text-center ring-2 backdrop:backdrop-blur-xs open:flex"
+>
+  <h5 class="text-accent text-lg">{t.title}</h5>
+  <p class="">{t.msg}</p>
+  <div class="flex flex-col-reverse items-start">
+    <form method="dialog">
+      <button class="hover:ffx-pointer focus:ffx-pointer outline-none">
+        {t.no}.
+      </button>
+    </form>
+    <button id="confirm-btn" class="hover:ffx-pointer focus:ffx-pointer outline-none">
+      {t.yes}.
+    </button>
+  </div>
+</dialog>
+
+<script>
+  import { $monsterCaptures } from "../state/monster-capture-count";
+
+  const dialog = document.getElementById("reset-dialog") as HTMLDialogElement;
+  const trigger = document.getElementById("reset-trigger");
+  const confirmBtn = document.getElementById("confirm-btn");
+
+  trigger?.addEventListener("click", () => dialog.showModal());
+
+  confirmBtn?.addEventListener("click", () => {
+    $monsterCaptures.set({});
+    dialog.close();
+  });
+
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+</script>

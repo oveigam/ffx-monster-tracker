@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import MonsterCounter from "./MonsterCounter.astro";
+
+export interface Props {
+  id: string;
+  name: string;
+  image: ImageMetadata;
+}
+
+const { id, name, image } = Astro.props;
+---
+
+<li class="bg-red-50a bg-read-50 flex items-start">
+  <div
+    class="bg-primary ffx-watertexture relative z-10 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full"
+  >
+    <Image
+      class="object-cover"
+      src={image}
+      width={70}
+      height={70}
+      alt={`${name} monster`}
+      draggable="false"
+    />
+    <div
+      class="absolute inset-0 z-20 size-24 rounded-full border-2 shadow-[inset_8px_0_10px_-6px_rgba(255,255,255,0.5),inset_-8px_0_10px_-6px_rgba(255,255,255,0.5),inset_0_8px_10px_-6px_rgba(255,255,255,0.5),inset_0_-8px_10px_-6px_rgba(255,255,255,0.5)]"
+    >
+    </div>
+  </div>
+
+  <div class="flex h-full flex-1 flex-col">
+    <div
+      class="mt-pxa -ml-12 w-[calc(100%+3rem)] bg-linear-to-r from-zinc-900 via-zinc-900/40 to-transparent pl-14"
+    >
+      <h3 class="text-2xl">{name}</h3>
+    </div>
+    <div
+      class="-ml-12 flex h-full w-[calc(100%+3rem)] bg-linear-to-r from-white/80 to-transparent pl-14"
+    >
+      <MonsterCounter monsterId={id} />
+    </div>
+  </div>
+</li>

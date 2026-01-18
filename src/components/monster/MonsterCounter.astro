@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+
+import arrow from "../../assets/arrow.png";
+
+export interface Props {
+  monsterId: string;
+}
+
+const { monsterId } = Astro.props;
+---
+
+<div class="flex flex-1 items-center" data-monster-id={monsterId}>
+  <button
+    class="group size-8 cursor-pointer transition-transform hover:-translate-x-0.5 active:-translate-x-1"
+    data-action="minus"
+    aria-label="Decrease count"
+  >
+    <Image
+      class="h-full object-contain"
+      src={arrow}
+      height={arrow.height}
+      width={arrow.width}
+      alt="Decrease count icon"
+      loading="eager"
+      fetchpriority="high"
+      draggable="false"
+    />
+  </button>
+
+  <span
+    class="bg-secondary text-accent font-yevon ffx-watertexture relative z-10 flex size-13 items-center justify-center overflow-hidden rounded-full border-2 shadow-[inset_8px_0_10px_-6px_rgba(255,255,255,0.5),inset_-8px_0_10px_-6px_rgba(255,255,255,0.5),inset_0_8px_10px_-6px_rgba(255,255,255,0.5),inset_0_-8px_10px_-6px_rgba(255,255,255,0.5)]"
+    data-count-display
+  >
+  </span>
+
+  <button
+    class="group size-8 cursor-pointer transition-transform hover:translate-x-0.5 active:translate-x-1"
+    data-action="plus"
+    aria-label="Increase count"
+  >
+    <Image
+      class="h-full scale-x-[-1] object-contain"
+      src={arrow}
+      height={arrow.height}
+      width={arrow.width}
+      alt="Decrease count icon"
+      loading="eager"
+      fetchpriority="high"
+      draggable="false"
+    />
+  </button>
+</div>
+
+<!-- Astro deduplicates scripts, this will run only once  -->
+<script>
+  import {
+    $monsterCaptures,
+    incrementMonsterCapture,
+    decrementMonsterCapture,
+  } from "../../state/monster-capture-count";
+
+  const counters = document.querySelectorAll("[data-monster-id]");
+
+  counters.forEach((container) => {
+    const id = container.getAttribute("data-monster-id")!;
+    const display = container.querySelector("[data-count-display]")!;
+    const plusBtn = container.querySelector<HTMLButtonElement>('[data-action="plus"]')!;
+    const minusBtn = container.querySelector<HTMLButtonElement>('[data-action="minus"]')!;
+
+    $monsterCaptures.subscribe((state) => {
+      const textValue = state[id] || "0";
+      display.textContent = textValue;
+
+      const numeric = Number(textValue);
+      const count = isNaN(numeric) ? 0 : numeric;
+
+      if (count >= 10) {
+        plusBtn.disabled = true;
+        plusBtn.classList.add("grayscale", "opacity-50", "pointer-events-none");
+      } else {
+        plusBtn.disabled = false;
+        plusBtn.classList.remove("grayscale", "opacity-50", "pointer-events-none");
+      }
+
+      if (count <= 0) {
+        minusBtn.disabled = true;
+        minusBtn.classList.add("grayscale", "opacity-50", "pointer-events-none");
+      } else {
+        minusBtn.disabled = false;
+        minusBtn.classList.remove("grayscale", "opacity-50", "pointer-events-none");
+      }
+    });
+
+    plusBtn.addEventListener("click", () => incrementMonsterCapture(id));
+    minusBtn.addEventListener("click", () => decrementMonsterCapture(id));
+  });
+</script>

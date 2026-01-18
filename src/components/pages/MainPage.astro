@@ -1,0 +1,55 @@
+---
+import LanguageLink from "../../components/LanguageLink.astro";
+import LocationHeader from "../../components/location/LocationHeader.astro";
+import Monster from "../../components/monster/Monster.astro";
+import ResetButton from "../../components/ResetButton.astro";
+import { dataset } from "../../data";
+import Layout from "../../layouts/Layout.astro";
+import { langs, type Lang } from "../../util/langs";
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const data = dataset[lang];
+---
+
+<Layout lang={lang}>
+  <header class="flex flex-col items-center gap-4 py-2">
+    <div class="container flex items-center justify-between">
+      <nav class="group flex gap-2">
+        {langs.map((language) => <LanguageLink language={language} />)}
+      </nav>
+      <ResetButton lang={lang} />
+    </div>
+    <div
+      class="container my-4 border-y bg-linear-to-r from-transparent via-zinc-900 to-transparent py-2 [border-image:linear-gradient(to_right,transparent,black,transparent)1]"
+    >
+      <h1 class="ffx-title w-full text-center text-3xl text-white sm:text-4xl md:text-6xl">
+        FFX Monster Tracker
+      </h1>
+    </div>
+  </header>
+  <main>
+    <ul role="list" class="container mx-auto flex flex-col gap-16">
+      {
+        data.map(({ name, header, monsters }) => {
+          return (
+            <li class="flex flex-col items-center">
+              <LocationHeader name={name} image={header} />
+              <ul
+                role="list"
+                class="container grid justify-center gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+              >
+                {monsters.map((monster) => (
+                  <Monster {...monster} />
+                ))}
+              </ul>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>
