@@ -1,4 +1,4 @@
-//  @ts-check
+// @ts-check
 import { defineConfig, passthroughImageService } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -11,7 +11,7 @@ export default defineConfig({
     imageService: true,
   }),
   image: {
-    service: passthroughImageService()
+    service: passthroughImageService(),
   },
 
   integrations: [],
