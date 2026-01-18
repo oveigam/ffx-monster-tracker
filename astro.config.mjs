@@ -10,10 +10,6 @@ export default defineConfig({
     edgeMiddleware: true,
   }),
 
-  build: {
-    inlineStylesheets: "always",
-  },
-
   integrations: [],
 
   vite: {
