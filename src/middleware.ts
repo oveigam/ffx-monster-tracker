@@ -13,6 +13,8 @@ export const onRequest = defineMiddleware((context, next) => {
       status: 307,
       headers: {
         Location: targetUrl.toString(),
+        Vary: "Accept-Language",
+        "Cache-Control": "public, s-maxage=86400", // 1 day
       },
     });
   }
