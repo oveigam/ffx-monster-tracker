@@ -235,7 +235,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-placeholder text-foreground ffx-text bg-primary font-sans font-bold;
+    @apply bg-placeholder text-foreground ffx-text bg-background font-sans font-bold;
   }
   html {
     @apply font-sans;
