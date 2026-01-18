@@ -37,7 +37,7 @@ const { data } = Astro.props as Props;
     </div>
   </header>
   <main>
-    <ul role="list" class="container mx-auto">
+    <ul role="list" class="container mx-auto flex flex-col gap-16">
       {
         data.map(({ name, header, monsters }) => {
           return (

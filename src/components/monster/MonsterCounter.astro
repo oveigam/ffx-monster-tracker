@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+
+import arrow from "../../assets/arrow.png";
+
 export interface Props {
   monsterId: string;
 }
@@ -6,45 +10,39 @@ export interface Props {
 const { monsterId } = Astro.props;
 ---
 
-<div class="flex flex-1 items-center gap-1" data-monster-id={monsterId}>
+<div class="flex flex-1 items-center" data-monster-id={monsterId}>
   <button
-    class="flex h-9 w-9 items-center justify-center rounded-full border border-solid border-slate-800 bg-slate-900 text-white"
+    class="group size-8 cursor-pointer transition-transform hover:-translate-x-0.5 active:-translate-x-1"
     data-action="minus"
     aria-label="Decrease count"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width={1.5}
-      stroke="currentColor"
-      class="h-5 w-5"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15"></path>
-    </svg>
+    <Image
+      class="h-full object-contain"
+      src={arrow}
+      height={arrow.height}
+      width={arrow.width}
+      alt="Decrease count icon"
+    />
   </button>
 
   <span
-    class="bg-secondary text-accent font-yevon ffx-watertexture relative z-10 flex size-12 items-center justify-center overflow-hidden rounded-full border-2 shadow-[inset_8px_0_10px_-6px_rgba(255,255,255,0.5),inset_-8px_0_10px_-6px_rgba(255,255,255,0.5),inset_0_8px_10px_-6px_rgba(255,255,255,0.5),inset_0_-8px_10px_-6px_rgba(255,255,255,0.5)] text-shadow-none"
+    class="bg-secondary text-accent font-yevon ffx-watertexture relative z-10 flex size-14 items-center justify-center overflow-hidden rounded-full border-2 shadow-[inset_8px_0_10px_-6px_rgba(255,255,255,0.5),inset_-8px_0_10px_-6px_rgba(255,255,255,0.5),inset_0_8px_10px_-6px_rgba(255,255,255,0.5),inset_0_-8px_10px_-6px_rgba(255,255,255,0.5)]"
     data-count-display
   >
   </span>
 
   <button
-    class="flex h-9 w-9 items-center justify-center rounded-full border border-solid border-slate-800 bg-slate-900 text-white"
+    class="group size-8 cursor-pointer transition-transform hover:translate-x-0.5 active:translate-x-1"
     data-action="plus"
     aria-label="Increase count"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width={1.5}
-      stroke="currentColor"
-      class="h-5 w-5"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-    </svg>
+    <Image
+      class="h-full scale-x-[-1] object-contain"
+      src={arrow}
+      height={arrow.height}
+      width={arrow.width}
+      alt="Decrease count icon"
+    />
   </button>
 </div>
 
