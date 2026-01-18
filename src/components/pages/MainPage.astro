@@ -1,29 +1,18 @@
 ---
-import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
+import LanguageLink from "../../components/LanguageLink.astro";
 import LocationHeader from "../../components/location/LocationHeader.astro";
 import Monster from "../../components/monster/Monster.astro";
+import ResetButton from "../../components/ResetButton.astro";
 import { dataset } from "../../data";
 import Layout from "../../layouts/Layout.astro";
-import { langs } from "../../util/langs";
-import LanguageLink from "../../components/LanguageLink.astro";
-import ResetButton from "../../components/ResetButton.astro";
+import { langs, type Lang } from "../../util/langs";
 
-export const getStaticPaths = (() => {
-  return langs.map((lang) => ({
-    params: {
-      lang,
-    },
-    props: {
-      data: dataset[lang],
-    },
-  }));
-}) satisfies GetStaticPaths;
+export interface Props {
+  lang: Lang;
+}
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-const { lang } = Astro.params as Params;
-const { data } = Astro.props as Props;
+const { lang } = Astro.props;
+const data = dataset[lang];
 ---
 
 <Layout lang={lang}>

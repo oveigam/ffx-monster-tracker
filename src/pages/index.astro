@@ -1,5 +1,7 @@
 ---
+export const prerender = false;
 
+if (Astro.preferredLocale) {
+  return Astro.redirect(`/${Astro.preferredLocale}/`);
+}
 ---
-
-<meta http-equiv="refresh" content="0;url=/en/" />
