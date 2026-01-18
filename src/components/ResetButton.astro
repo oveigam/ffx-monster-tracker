@@ -55,7 +55,7 @@ const t = LABELS[Astro.props.lang] || LABELS.en;
 
 <dialog
   id="reset-dialog"
-  class="ffx-stonetexture bg-popover/75 text-popover-foreground ring-foreground/25 m-auto hidden w-96 flex-col items-center gap-4 p-6 text-center ring-2 open:flex"
+  class="ffx-stonetexture bg-popover/75 text-popover-foreground ring-foreground/25 m-auto hidden w-96 flex-col items-center gap-4 p-6 text-center ring-2 backdrop:backdrop-blur-xs open:flex"
 >
   <h5 class="text-accent text-lg">{t.title}</h5>
   <p class="">{t.msg}</p>
