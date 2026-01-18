@@ -49,6 +49,18 @@
   --sidebar-ring: oklch(0.6 0.12 250);
 }
 
+@font-face {
+  font-family: "FFXYevon";
+  src:
+    url("/fonts/FFXYevon.eot?") format("eot"),
+    url("/fonts/FFXYevon.woff") format("woff"),
+    url("/fonts/FFXYevon.ttf") format("truetype"),
+    url("/fonts/FFXYevon.svg#") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @keyframes pointer-bob {
   0%,
   100% {
@@ -61,6 +73,7 @@
 
 @theme inline {
   --font-sans: "Figtree Variable", sans-serif;
+  --font-yevon: "FFXYevon", ui-sans-serif, system-ui;
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
