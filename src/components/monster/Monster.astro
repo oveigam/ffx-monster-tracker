@@ -16,11 +16,11 @@ const { id, name, image } = Astro.props;
     class="bg-primary ffx-watertexture relative z-10 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full"
   >
     <Image
+      class="object-cover"
       src={image}
       width={70}
       height={70}
-      alt={`${name} monster image`}
-      class="object-cover"
+      alt={`${name} monster`}
       draggable="false"
     />
     <div

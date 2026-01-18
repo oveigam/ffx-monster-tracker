@@ -16,8 +16,10 @@ const { name, image } = Astro.props;
     <Image
       class="pointer-events-none h-full w-full object-cover select-none"
       src={image}
-      alt={`${name} header image`}
+      alt={`${name} header`}
       height={400}
+      loading="eager"
+      fetchpriority="high"
     />
     <div class="bg-primary/30 ffx-watertexture absolute inset-0 flex justify-center px-3">
       <div class="container flex items-end justify-start">
