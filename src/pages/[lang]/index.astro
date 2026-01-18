@@ -6,6 +6,7 @@ import { dataset } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 import { langs } from "../../util/langs";
 import LanguageLink from "../../components/LanguageLink.astro";
+import ResetButton from "../../components/ResetButton.astro";
 
 export const getStaticPaths = (() => {
   return langs.map((lang) => ({
@@ -31,6 +32,7 @@ const { data } = Astro.props as Props;
       <nav class="group flex gap-2">
         {langs.map((language) => <LanguageLink language={language} />)}
       </nav>
+      <ResetButton lang={lang} />
     </div>
     <div
       class="container my-4 border-y bg-linear-to-r from-transparent via-zinc-900 to-transparent py-2 [border-image:linear-gradient(to_right,transparent,black,transparent)1]"

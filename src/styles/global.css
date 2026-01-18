@@ -11,7 +11,7 @@
   --card-foreground: oklch(0.9 0.01 240);
 
   /* Popovers and Overlays */
-  --popover: oklch(0.406 0.1798 271.55);
+  --popover: oklch(0.3716 0.1177 286.85);
   --popover-foreground: oklch(0.9 0.01 273);
 
   /* The signature bright blue highlight */
@@ -138,7 +138,7 @@
     position: absolute;
 
     right: 100%;
-    margin-right: -4px;
+    /* margin-right: -4px; */
     z-index: 50;
 
     width: 24px;
@@ -239,5 +239,8 @@
   }
   html {
     @apply font-sans;
+  }
+  button {
+    @apply ffx-text;
   }
 }
