@@ -1,18 +1,15 @@
 // @ts-check
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig, } from "astro/config";
 
+import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: vercel({
-    edgeMiddleware: true,
-    imageService: true,
-  }),
-  image: {
-    service: passthroughImageService(),
-  },
+  adapter: cloudflare(),
+  // image: {
+  //   service: passthroughImageService(),
+  // },
 
   integrations: [],
 

@@ -1,22 +1,19 @@
 import { defineMiddleware } from "astro:middleware";
-import { langs } from "./util/langs";
 
 export const onRequest = defineMiddleware((context, next) => {
   if (context.url.pathname === "/") {
-    const acceptLanguage = context.request.headers.get("accept-language") || "";
+    const ua = context.request.headers.get("user-agent") || "unknown";
+    const ip = context.request.headers.get("x-forwarded-for") || "unknown";
+    const locale = context.preferredLocale || "en";
 
-    const locale = langs.find((lang) => acceptLanguage.includes(lang)) || "en";
+    console.log(`[Redirect Log]
+      Preferred Locale: ${context.preferredLocale}
+      Target Locale: ${locale}
+      Device (user agent): ${ua}
+      IP: ${ip}
+    `);
 
-    const targetUrl = new URL(`/${locale}/`, context.url);
-
-    return new Response(null, {
-      status: 307,
-      headers: {
-        Location: targetUrl.toString(),
-        Vary: "Accept-Language",
-        "Cache-Control": "public, s-maxage=86400", // 1 day
-      },
-    });
+    return context.redirect(`/${locale}/`);
   }
 
   return next();
