@@ -119,6 +119,10 @@
   --radius-4xl: calc(var(--radius) + 16px);
 
   --animate-pointer-bob: pointer-bob 0.8s ease-in-out infinite;
+
+  --shadow-inner-glow:
+    inset 8px 0 10px -6px rgba(255, 255, 255, 0.5), inset -8px 0 10px -6px rgba(255, 255, 255, 0.5),
+    inset 0 8px 10px -6px rgba(255, 255, 255, 0.5), inset 0 -8px 10px -6px rgba(255, 255, 255, 0.5);
 }
 
 @utility bg-placeholder {
