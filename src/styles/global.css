@@ -244,3 +244,8 @@
     @apply ffx-text;
   }
 }
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--primary) var(--foreground);
+}
