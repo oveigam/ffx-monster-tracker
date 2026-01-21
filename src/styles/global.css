@@ -52,9 +52,10 @@
 @font-face {
   font-family: "FFXYevon";
   src:
-    url("/fonts/FFXYevon.eot?") format("eot"),
+    url("/fonts/FFXYevon.woff2") format("woff2"),
     url("/fonts/FFXYevon.woff") format("woff"),
     url("/fonts/FFXYevon.ttf") format("truetype"),
+    url("/fonts/FFXYevon.eot?") format("eot"),
     url("/fonts/FFXYevon.svg#") format("svg");
   font-weight: normal;
   font-style: normal;
