@@ -1,10 +1,16 @@
-//  @ts-check
-import { defineConfig } from "astro/config";
+// @ts-check
+import { defineConfig, } from "astro/config";
 
+import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: cloudflare(),
+  // image: {
+  //   service: passthroughImageService(),
+  // },
+
   integrations: [],
 
   vite: {
@@ -15,8 +21,8 @@ export default defineConfig({
     locales: ["en", "es", "fr", "de", "it"],
     defaultLocale: "en",
     routing: {
-      prefixDefaultLocale: true,
-      redirectToDefaultLocale: true
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false
     }
-  }
+  },
 });

@@ -122,8 +122,8 @@
   --animate-pointer-bob: pointer-bob 0.8s ease-in-out infinite;
 }
 
-@utility bg-ffx {
-  background-image: url("/bg.png");
+@utility bg-placeholder {
+  background-image: url("/bg-placeholder.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -235,7 +235,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-ffx text-foreground ffx-text font-sans font-bold;
+    @apply bg-placeholder text-foreground ffx-text bg-background font-sans font-bold;
   }
   html {
     @apply font-sans;

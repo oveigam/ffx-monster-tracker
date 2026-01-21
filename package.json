@@ -1,12 +1,13 @@
 {
   "name": "ffx-monster-tracker",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "pnpm build && wrangler dev",
+    "deploy": "pnpm build && wrangler deploy",
     "astro": "astro",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --noEmit --watch",
@@ -14,6 +15,7 @@
     "check": "prettier --write . && eslint --fix"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@fontsource-variable/figtree": "^5.2.10",
     "@nanostores/persistent": "^1.2.0",
     "@tailwindcss/vite": "^4.1.18",
@@ -24,6 +26,9 @@
   "devDependencies": {
     "prettier": "^3.8.0",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.2"
-  }
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "sharp": "^0.34.5",
+    "wrangler": "^4.59.3"
+  },
+  "packageManager": "pnpm@10.28.1"
 }

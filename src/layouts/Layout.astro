@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
+import Image from "astro/components/Image.astro";
 import type { Lang } from "../util/langs";
+import bg from "../assets/bg.webp";
 
 export interface Props {
   lang: Lang;
@@ -18,6 +20,7 @@ const { lang } = Astro.props;
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="preload" as="image" href="/bg-placeholder.webp" />
     <meta name="theme-color" content="#000000" />
     <meta name="generator" content={Astro.generator} />
     <meta
@@ -27,6 +30,17 @@ const { lang } = Astro.props;
     <title>FFX Monster Tracker</title>
   </head>
   <body>
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <Image
+        class="h-full w-full object-cover"
+        src={bg}
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+        draggable="false"
+        aria-hidden="true"
+      />
+    </div>
     <slot />
   </body>
 </html>
