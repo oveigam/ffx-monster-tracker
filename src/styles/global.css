@@ -54,9 +54,7 @@
   src:
     url("/fonts/FFXYevon.woff2") format("woff2"),
     url("/fonts/FFXYevon.woff") format("woff"),
-    url("/fonts/FFXYevon.ttf") format("truetype"),
-    url("/fonts/FFXYevon.eot?") format("eot"),
-    url("/fonts/FFXYevon.svg#") format("svg");
+    url("/fonts/FFXYevon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
