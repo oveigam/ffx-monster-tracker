@@ -16,7 +16,7 @@ const data = dataset[lang];
 ---
 
 <Layout lang={lang}>
-  <header class="flex flex-col items-center gap-4 py-2">
+  <header class="flex flex-col items-center gap-4 px-2 py-2 lg:px-0">
     <div class="container flex items-center justify-between">
       <nav class="group flex gap-2">
         {langs.map((language) => <LanguageLink language={language} />)}
@@ -40,7 +40,7 @@ const data = dataset[lang];
               <LocationHeader name={name} image={header} />
               <ul
                 role="list"
-                class="container grid justify-center gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+                class="grid w-full grid-cols-1 justify-center gap-4 gap-y-8 p-4 py-8 pb-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
               >
                 {monsters.map((monster) => (
                   <Monster {...monster} />
