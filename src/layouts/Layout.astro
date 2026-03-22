@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Image from "astro/components/Image.astro";
 import type { Lang } from "../util/langs";
 import bg from "../assets/bg.webp";
+import Posthog from "../components/posthog.astro";
 
 export interface Props {
   lang: Lang;
@@ -28,6 +29,7 @@ const { lang } = Astro.props;
       content="Keep track of Final Fantasy X's monster capture mini game progress"
     />
     <title>FFX Monster Tracker</title>
+    <Posthog />
   </head>
   <body>
     <div class="fixed inset-0 -z-10 overflow-hidden">
